@@ -1,6 +1,6 @@
 // dbf.go A small app and library to read most common dBase files and write a text file (csv)
-// written by Fabien Fivaz (CSCF), released under Apache 2.0 License. See license.txt for details.
-// Part of the code has freely adapted from the go-dbf project, also released under Apache 2.0 license
+// written by Fabien Fivaz, released under Apache 2.0 License. See license.txt for details.
+// Part of the code has freely adapted from the go-dbf project (code.google.com/p/go-dbf/) released under Apache 2.0 license
 
 package main
 
@@ -46,10 +46,8 @@ var csv bool = true
 func main() {
 
 	a := os.Args
-	
 	filename = a[1]
 
-	//filename = "test2.dbf"
 	reader, err := os.Open(filename)
 	if err != nil {
 		fmt.Printf("Error loading file %s: %s\n", filename, err)
