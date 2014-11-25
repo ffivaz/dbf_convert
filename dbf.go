@@ -40,13 +40,18 @@ var fType = map[string]string{
 
 var filename string
 var table dBaseTableInfo
+
+// Switch from informations about the dbf (info is true) file to exporting the file (csv is true) 
+// with something like dbf_convert test.dbf > test.csv
 var info bool = false
 var csv bool = true
 
 func main() {
 
-	a := os.Args
-	filename = a[1]
+	// program takes one argument : filename, for programming purpose, changed to a test file
+	//a := os.Args
+	//filename = a[1]
+	filename = "test.dbf"
 
 	reader, err := os.Open(filename)
 	if err != nil {
