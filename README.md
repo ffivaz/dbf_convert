@@ -10,3 +10,6 @@ To run the code:
     3) compile with "go build"
     4) run dbf_convert test.dbf > test.csv
 
+To build the package:
+
+<code>go build dbf_convert.go</code>
