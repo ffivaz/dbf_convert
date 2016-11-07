@@ -162,10 +162,6 @@ func readDbf(infile string, tofile bool) bool {
 		panic(fmt.Sprintf("Error loading file %s: %s\n", infile, err))
 	}
 
-	table.dBaseLabel = uint8(buf[0])
-	table.year = 1900 + uint32(buf[1])
-	table.month = uint8(buf[2])
-	table.day = uint8(buf[3])
 	table.numberOfFields = ((uint16(buf[8]) | uint16(buf[9])<<8) - 1 - 32) / 32
 	table.numberOfBytesInHeader = (uint16(buf[8]) | uint16(buf[9])<<8)
 	table.numberOfRecords = (uint32(buf[4]) | uint32(buf[5])<<8 | uint32(buf[6])<<16 | uint32(buf[7])<<24)
@@ -266,10 +262,6 @@ func concatDbf(indir string) bool {
 			panic(fmt.Sprintf("Error loading file %s: %s\n", f.Name(), err))
 		}
 
-		table.dBaseLabel = uint8(buf[0])
-		table.year = 1900 + uint32(buf[1])
-		table.month = uint8(buf[2])
-		table.day = uint8(buf[3])
 		table.numberOfFields = ((uint16(buf[8]) | uint16(buf[9])<<8) - 1 - 32) / 32
 		table.numberOfBytesInHeader = (uint16(buf[8]) | uint16(buf[9])<<8)
 		table.numberOfRecords = (uint32(buf[4]) | uint32(buf[5])<<8 | uint32(buf[6])<<16 | uint32(buf[7])<<24)
