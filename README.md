@@ -1,4 +1,4 @@
-cdbfc - Go code to convert dBase files to CSV. Could be expanded to handle more complex dBase tasks.
+cdbfc - Go code to convert dBase files to CSV
 
 # SYNOPSIS
 #### For information about a DBase file
