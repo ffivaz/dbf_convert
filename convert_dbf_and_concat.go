@@ -7,8 +7,10 @@ package main
 import (
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
 	"strings"
+	"flag"
 )
 
 type dBaseTableInfo struct {
@@ -39,6 +41,7 @@ var fType = map[string]string{
 }
 
 var filename string
+var dirname string
 var table dBaseTableInfo
 
 // Switch from informations about the dbf (info is true) file to exporting the file (csv is true)
@@ -46,10 +49,35 @@ var table dBaseTableInfo
 var info bool = false
 var csv bool = true
 
+// flags
+var sff bool; // single file flag
+var df bool; // directory flag
+
+func init() {
+	flag.BoolVar(&sff, "f", true, "convert a single file")
+	flag.BoolVar(&df, "d", false, "convert all files in directory")
+}
+
 func main() {
 
+	flag.Parse()
+
+	//dirFlag := flag.Bool("d", false, "convert all files in directory")
+	//singleFileFlag := flag.Bool("f", true, "convert a single file")
+	//concatFlag := flag.Bool("c", false, "concatenate all files in directory to a single output")
+
+	if (df) {
+		a := os.Args
+		dirname = a[2]
+
+		files, _ := ioutil.ReadDir(dirname)
+		for _, f := range files {
+			fmt.Println(f.Name())
+		}
+	} else if (sff) {
+
 	a := os.Args
-	filename = a[1]
+	filename = a[2]
 
 	reader, err := os.Open(filename)
 	if err != nil {
@@ -145,4 +173,5 @@ func main() {
 			fmt.Print("\n")
 		}
 	}
+}
 }
