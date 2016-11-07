@@ -1,15 +1,25 @@
-dbf_convert - Go code to convert dBase files to CSV. Could be expanded to handle more complex dBase tasks.
+cdbfc - Go code to convert dBase files to CSV. Could be expanded to handle more complex dBase tasks.
+
 # SYNOPSIS
-**dbf_convert** file.dbf > file.csv
+#### For information about a DBase file
+<code>**cdbfc** -i file.dbf</code>
+
+#### For a single file to stdout
+<code>**cdbfc** -f file.dbf > file.csv</code>
+
+#### For a single file to the same file with .csv extension
+<code>**cdbfc** -f file.dbf -o</code>
+
+#### For multiple files in directory (to multiple files in the same directory)
+<code>**cdbfc** -d directory</code>
+
+#### For multiple files in directory concatenaed to stdout
+<code>**cdbfc** -c directory</code>
+
+#### For multiple files in directory concatenaed to stdout (with first column being the file name)
+<code>**cdbfc** -c directory -a</code>
 
 # DESCRIPTION
-To run the code:
-
-    1) change filename in code or uncomment the code to get the command-line argument
-    2) choose csv = true or info = true in code to export or get informations on file
-    3) compile with "go build"
-    4) run dbf_convert test.dbf > test.csv
-
 To build the package:
 
-<code>go build dbf_convert.go</code>
+<code>go build cdbfc.go</code>
