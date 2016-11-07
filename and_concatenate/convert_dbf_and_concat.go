@@ -48,11 +48,6 @@ var csv bool = true
 
 func main() {
 
-  files, _ := ioutil.ReadDir("./")
-  for _, f := range files {
-  	fmt.Println(f.Name())
-  }
-
 	a := os.Args
 	filename = a[1]
 
